@@ -1,26 +1,55 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Réservation Salon Rabat</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-    <div class="container">
-        <img src="{{ url_for('static', filename='images/salon.jpg') }}" alt="Salon Rabat" class="header-img">
-        <h1>Réservez votre rendez-vous</h1>
-        {% if success %}
-            <div class="confirmation">
-                Merci {{ name }} ! Une confirmation a été envoyée à {{ email }} pour le {{ date }} à {{ time }}.
-            </div>
-        {% endif %}
-        <form method="POST">
-            <input type="text" name="name" placeholder="Votre nom" required>
-            <input type="email" name="email" placeholder="Votre e-mail" required>
-            <input type="date" name="date" required>
-            <input type="time" name="time" required>
-            <button type="submit">Réserver</button>
-        </form>
-    </div>
-</body>
-</html>
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 500px;
+    margin: 50px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+h1 {
+    color: #2c3e50;
+}
+
+input, button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+button {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #219150;
+}
+
+.confirmation {
+    background-color: #dff0d8;
+    color: #3c763d;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.header-img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
