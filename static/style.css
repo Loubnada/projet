@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Réservation Salon Rabat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='images/salon.jpg') }}" alt="Salon Rabat" class="header-img">
+        <h1>Réservez votre rendez-vous</h1>
+        {% if success %}
+            <div class="confirmation">
+                Merci {{ name }} ! Une confirmation a été envoyée à {{ email }} pour le {{ date }} à {{ time }}.
+            </div>
+        {% endif %}
+        <form method="POST">
+            <input type="text" name="name" placeholder="Votre nom" required>
+            <input type="email" name="email" placeholder="Votre e-mail" required>
+            <input type="date" name="date" required>
+            <input type="time" name="time" required>
+            <button type="submit">Réserver</button>
+        </form>
+    </div>
+</body>
+</html>
