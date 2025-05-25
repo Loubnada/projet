@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <title>Réservation Salon</title>
+    <meta charset="UTF-8">
+    <title>Réservation Salon Rabat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Réserver une séance au salon de Rabat</h1>
-    <form action="/reserver" method="POST">
-        <label>Nom :</label><br>
-        <input type="text" name="nom" required><br><br>
-
-        <label>Service :</label><br>
-        <select name="service">
-            <option value="Coiffure">Coiffure</option>
-            <option value="Maquillage">Maquillage</option>
-            <option value="Massage">Massage</option>
-        </select><br><br>
-
-        <label>Date :</label><br>
-        <input type="date" name="date" required><br><br>
-
-        <label>Heure :</label><br>
-        <input type="time" name="heure" required><br><br>
-
-        <button type="submit">Réserver</button>
-    </form>
+    <div class="container">
+        <img src="{{ url_for('static', filename='images/salon.jpg') }}" alt="Salon Rabat" class="header-img">
+        <h1>Réservez votre rendez-vous</h1>
+        {% if success %}
+            <div class="confirmation">
+                Merci {{ name }} ! Une confirmation a été envoyée à {{ email }} pour le {{ date }} à {{ time }}.
+            </div>
+        {% endif %}
+        <form method="POST">
+            <input type="text" name="name" placeholder="Votre nom" required>
+            <input type="email" name="email" placeholder="Votre e-mail" required>
+            <input type="date" name="date" required>
+            <input type="time" name="time" required>
+            <button type="submit">Réserver</button>
+        </form>
+    </div>
 </body>
 </html>
