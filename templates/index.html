@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Réservation Salon</title>
+</head>
+<body>
+    <h1>Réserver une séance au salon de Rabat</h1>
+    <form action="/reserver" method="POST">
+        <label>Nom :</label><br>
+        <input type="text" name="nom" required><br><br>
+
+        <label>Service :</label><br>
+        <select name="service">
+            <option value="Coiffure">Coiffure</option>
+            <option value="Maquillage">Maquillage</option>
+            <option value="Massage">Massage</option>
+        </select><br><br>
+
+        <label>Date :</label><br>
+        <input type="date" name="date" required><br><br>
+
+        <label>Heure :</label><br>
+        <input type="time" name="heure" required><br><br>
+
+        <button type="submit">Réserver</button>
+    </form>
+</body>
+</html>
